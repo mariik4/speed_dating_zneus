@@ -30,7 +30,7 @@ class MLP(nn.Module):
         for i, hidden_dim in enumerate(hidden_dims):
             layers.append(nn.Linear(prev_dim, hidden_dim))
             layers.append(activations[i % len(activations)].value())
-            if dropout > 0:
+            if dropout > 0.0:
                 layers.append(nn.Dropout(dropout))
             prev_dim = hidden_dim
         layers.append(nn.Linear(prev_dim, output_dim))
