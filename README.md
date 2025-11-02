@@ -1,0 +1,1 @@
+Colab svg image link: ![Open In Colab](https://colab.research.google.com/github/mariik4/speed_dating_zneus/blob/feat%2Fafter_analyse_stage/zneus_project.ipynb)
