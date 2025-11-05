@@ -10,7 +10,11 @@ Conclusion: we decide to use only this columns for our model: ...
 We try to train model using all the features that we have after analysing stage.
 And we didnt get very good results. All results are provided in baseline report.
 We now have baseline to improve our model.
-From the results we can see that our model is overfitting a lot. And to improve it we need to reduce number of features and increase number of samples that we can use for training and also try to tune hyperparameters of our model and try different configurations of model architecture.
+From the results we can see that our model is overfitting a lot, our val_error is growing and our train_error is decreasing, aslo our test_error is increasing.TODO: (check if im correct here!!!!)
+And to improve it we need to reduce number of features and increase number of samples that we can use for training and also try to tune hyperparameters of our model and try different configurations of model architecture.
+Also we want to see one more statistic for our model with validation set.
+And we found an issue that we fit_transform not only training set but also validation and test sets. So we fix it in the next try.
+Also from the binary classification we can say we want sigmoid activation in the output layer and binary crossentropy loss function. And from our baseline we can see we want less features in first hidden layer.
 [[Baseline Report]]
 
 

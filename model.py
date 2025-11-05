@@ -7,6 +7,7 @@ class ActivationFunctions(Enum):
     RELU = nn.ReLU
     GELU = nn.GELU
     TANH = nn.Tanh
+    SIGM = nn.Sigmoid
 
 
 class MLP(nn.Module):
