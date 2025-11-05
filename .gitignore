@@ -1,0 +1,10 @@
+!speeddating.csv
+!requirements.txt
+!README.md
+.env
+.vscode/
+__pycache__/
+*.ipynb
+!zneus_project.ipynb
+wandb/
+.*env*
