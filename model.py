@@ -29,10 +29,6 @@ class MLP(nn.Module):
         if not activations:
             raise ValueError("No activations")
 
-        # for activation in activations:
-        #     if not isinstance(activation, ActivationFunctions):
-        #         raise ValueError(f"Unsupported activation '{activation}'")
-
         if activations and len(activations) != len(hidden_dims):
             raise ValueError("The number of activations must match the number of hidden layers")
         
@@ -88,37 +84,12 @@ class MLP(nn.Module):
                 preds = preds.view(-1)
                 targets = targets.view(-1)
                 
-                predicted_labels = (preds >= 0.8).float()
+                predicted_labels = (preds >= 0.5).float()
                 correct += (predicted_labels == targets).sum().item()
                 total += targets.size(0)
         
         return total_loss / len(dataloader.dataset), correct / total    
 
-    # def evaluate(self, dataloader: DataLoader, criterion: nn.Module, device: str):
-    #     self.eval()
-    #     total_loss = 0.0
-    #     all_preds = []
-    #     all_targets = []
-        
-    #     with torch.no_grad():
-    #         for features, targets in dataloader:
-    #             features, targets = features.to(device), targets.to(device)
-    #             logits = self(features)
-    #             loss = criterion(logits, targets)
-    #             total_loss += loss.item() * features.size(0)
-                
-    #             preds = torch.sigmoid(logits)
-                
-    #             all_preds.append(preds.cpu())
-    #             all_targets.append(targets.cpu())
-        
-    #     all_preds = torch.cat(all_preds).view(-1)
-    #     all_targets = torch.cat(all_targets).view(-1)
-        
-    #     predicted_labels = (all_preds >= 0.7).float()
-    #     correct = (predicted_labels == all_targets).sum().item()
-    #     total = all_targets.size(0)
-        
-    #     return total_loss / len(dataloader.dataset), correct / total
+
 
     
